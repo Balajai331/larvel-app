@@ -10,8 +10,6 @@ RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local
 COPY composer.json composer.lock ./
 RUN composer install --no-scripts --no-autoloader
 
-RUN compose update
-
 #stage 2 : Production stage
 
 FROM php:7.4-fpm
