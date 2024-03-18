@@ -13,6 +13,7 @@ RUN composer install --no-scripts --no-autoloader
 #stage 2 : Production stage
 
 FROM php:7.4-fpm
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
 WORKDIR /var/www/html
 COPY --from=builder /var/www/html .
 COPY . .
