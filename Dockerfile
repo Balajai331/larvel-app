@@ -19,6 +19,5 @@ COPY --from=builder /var/www/html .
 COPY . .
 RUN composer dump-autoload --optimize
 RUN chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache
-RUN php artisan key:generate
 EXPOSE 9000
-CMD php artisan serve --host=0.0.0.0 --port=$APP_PORT
+
